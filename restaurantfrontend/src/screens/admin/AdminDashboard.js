@@ -26,7 +26,8 @@ import AllSales from "../allsales/AllSales";
 import { Routes,Route } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { serverURL } from "../../services/FetchNodeServices";
-
+import Summary from "./Summary";
+import Chart from "../../components/DashboardComponent/Chart";
 export default function AdminDashboard(props){
   const classes=useStyles();
   const navigate=useNavigate();
@@ -137,6 +138,7 @@ export default function AdminDashboard(props){
             </Paper>
           </Grid> 
           <Grid item xs={9.8} style={{paddingLeft:5,paddingTop:10}}>
+            <Summary/>
             <Routes>
               <Route element={<CategoryInterface/>} path='/categoryinterface'/>
               <Route element={<DisplayAllCategory/>} path='/displayallcategory'/>
@@ -150,9 +152,11 @@ export default function AdminDashboard(props){
               <Route element={<DisplayAllWaiterTable/>} path='/displayallwaitertable'/>
               <Route element={<FoodBooking/>} path='/foodbooking'/>
               <Route element={<AllSales />} path='/allsales'/>
+              <Route element={<Summary/>} path='/summary'/>
             </Routes> 
           </Grid>
         </Grid>
+      
     </Box>
   )
 }
