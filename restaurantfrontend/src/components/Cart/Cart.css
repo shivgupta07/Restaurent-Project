@@ -1,0 +1,35 @@
+.menu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+  }
+  
+  .item-name {
+    flex-grow: 1;
+  }
+  
+  .item-actions {
+    display: flex;
+    align-items: center;
+  }
+  
+  .action-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    margin: 0 5px;
+    cursor: pointer;
+  }
+  
+  .item-quantity {
+    font-size: 1.2rem;
+    margin: 0 5px;
+  }
+  
+  .item-price {
+    font-weight: bold;
+  }
+  
