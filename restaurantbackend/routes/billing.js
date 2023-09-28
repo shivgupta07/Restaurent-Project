@@ -67,4 +67,20 @@ router.post('/bill_submit', function(req, res, next) {
         }) 
         })
       
+
+        router.post('/fetch_todays_total',function(req,res){
+            console.log(req.body.currentdate);
+            pool.query('select sum(totalamount) as totalbill from billing where billdate=?',[req.body.todaysdate],function(error,result){
+                if(error)
+                {
+                    console.log(error)
+                    res.status(200).json({status:false,message:'Database Error',data:[]});
+                }
+                else
+                {  console.log(result)
+                    res.status(200).json({status:true,data:result[0],message:'bills Get Successfully'});
+                }
+            
+            }) 
+            })
   module.exports = router;
