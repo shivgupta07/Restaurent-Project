@@ -10,7 +10,7 @@ import ListItemText from '@mui/material/ListItemText';
 import Divider from '@mui/material/Divider';
 import InboxIcon from '@mui/icons-material/Inbox';
 import DraftsIcon from '@mui/icons-material/Drafts';
-
+import DashboardIcon from '@mui/icons-material/Dashboard';
 import CategoryInterface from "../Category/CategoryInterface";
 import DisplayAllCategory from "../Category/DisplayAllCategory";
 import FoodItemInterface from "../fooditem/FoodItemInterface";
@@ -24,7 +24,7 @@ import DisplayAllWaiterTable from "../waitertable/DisplayAllWaiterTable";
 import FoodBooking from "../FoodBooking/FoodBooking"
 import AllSales from "../allsales/AllSales";
 import { Routes,Route } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Navigate } from "react-router-dom";
 import { serverURL } from "../../services/FetchNodeServices";
 import Summary from "./Summary";
 import Chart from "../../components/DashboardComponent/Chart";
@@ -53,6 +53,15 @@ export default function AdminDashboard(props){
               <div className={classes.menuStyle}>
                 <List>
                   <Divider />
+
+                  <ListItem disablePadding>
+                    <ListItemButton onClick={()=>navigate('/admindashboard/Summary')}>
+                      <ListItemIcon>
+                        <DashboardIcon/>
+                      </ListItemIcon>
+                      <ListItemText primary={<span className={classes.menuItemStyle}>Admin Dashboard</span>} />
+                    </ListItemButton>
+                  </ListItem>
                   
                   <ListItem disablePadding>
                     <ListItemButton onClick={()=>navigate('/admindashboard/displayallcategory')}>
@@ -137,9 +146,10 @@ export default function AdminDashboard(props){
               </div> 
             </Paper>
           </Grid> 
-          <Grid item xs={9.8} style={{paddingLeft:5,paddingTop:10}}>
-            <Summary/>
+          <Grid item xs={9.8} style={{padding:20}}>
+            
             <Routes>
+              <Route path="/" element={<Navigate to="/admindashboard/Summary" replace={true} />}/>
               <Route element={<CategoryInterface/>} path='/categoryinterface'/>
               <Route element={<DisplayAllCategory/>} path='/displayallcategory'/>
               <Route element={<FoodItemInterface/>} path='/fooditeminterface'/>

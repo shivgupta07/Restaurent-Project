@@ -1,5 +1,7 @@
 import Chart from "../../components/DashboardComponent/Chart"
+import Deposits from "../../components/Deposits"
 import { Grid,Paper } from "@mui/material"
+import Title from "../../components/Title"
 export default function Summary(props)
 {
   return(<div>
@@ -14,7 +16,20 @@ export default function Summary(props)
                     height: 240,
                   }}
                 >
+                
                   <Chart />
+                </Paper>
+              </Grid>
+              <Grid item xs={12} md={4} lg={3}>
+                <Paper
+                  sx={{
+                    p: 2,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    height: 240,
+                  }}
+                >
+                  <Deposits />
                 </Paper>
               </Grid>
           </Grid>    

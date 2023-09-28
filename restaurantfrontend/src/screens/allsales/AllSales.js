@@ -96,7 +96,7 @@ export default function AllSales()
             Total Sales
           </div>
           <div style={{fontSize:24}}>
-          &#8377; {totalAmount.totalbill}
+          &#8377; {parseFloat(totalAmount.totalbill).toFixed(2)}
           </div>
           
 
